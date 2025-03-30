@@ -27,8 +27,6 @@ namespace demo
 		{
 			panel1.AutoScroll = true;
 			partners.Clear();
-/*			int initleft = 0;
-*/
 			int sale;
 			int d = 20;
 			partners = methods.GetPartners();
@@ -69,6 +67,7 @@ namespace demo
 			}
 
 		}
+
 		private void FMain_Load(object sender, EventArgs e)
 		{
 			DoCard();
@@ -77,27 +76,32 @@ namespace demo
 		public void group1_Click(object sender, EventArgs e)
 		{
 
-			// Получаем GroupBox, по которому кликнули
+/*			// Получаем GroupBox, по которому кликнули
 			var groupBox = (GroupBox)sender;
-
 			// Извлекаем ID партнера из имени GroupBox'а
 			int partnerId = int.Parse(groupBox.Name);
+*/			
+			int partnerId = int.Parse((sender as GroupBox).Name);
 
 			// Найдем нужного партнера по ID
-			Partners selectedPartner = partners.FirstOrDefault(p => p.PartnerId == partnerId);
+			/*			Partners selectedPartner = partners.FirstOrDefault(p => p.PartnerId == partnerId);*/
 
-			if (selectedPartner != null)
+			Partners partners = methods.GetPartners(partnerId);
+
+			if (partners != null)
 			{
 				// Создаем экземпляр формы NewPartner и передаем ей данные партнера
-				NewPartner editPartner = new NewPartner(selectedPartner);
+				NewPartner editPartner = new NewPartner(partners);
 				editPartner.ShowDialog();
+				DoCard();
 			}
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			NewPartner newPartner = new NewPartner();
-			newPartner.Show();
+			newPartner.ShowDialog();
+			DoCard();
 		}
 	}
 }

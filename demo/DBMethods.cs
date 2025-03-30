@@ -44,7 +44,7 @@ namespace demo
 				partners1.PhonePartner = ds.Tables[0].Rows[i]["phonePartner"].ToString();
 				partners1.AddressPartner = ds.Tables[0].Rows[i]["addressPartner"].ToString();
 				partners1.TypePartnerName = ds.Tables[0].Rows[i]["typePartnerName"].ToString();
-				partners1.Inn = float.Parse(ds.Tables[0].Rows[i]["inn"].ToString());
+				partners1.Inn = ds.Tables[0].Rows[i]["inn"].ToString();
 				partners1.Rating = int.Parse(ds.Tables[0].Rows[i]["rating"].ToString());
 				partners1.TypePartnerId = int.Parse(ds.Tables[0].Rows[i]["typePartnerId"].ToString());
 				partners.Add(partners1);
@@ -78,5 +78,24 @@ namespace demo
 			return sale;
 		}
 
+		public Partners GetPartners(int partnersId)
+		{
+			string sqlP = $"select * from Partners, Partners_type where Partners_type.typePartnerId = Partners.typePartnerId and Partners.partnersId = {partnersId}";
+			DataSet ds = classAdo.GetDataSet(sqlP);
+			Partners partners = new Partners();
+			partners.PartnerId = int.Parse(ds.Tables[0].Rows[0]["partnersId"].ToString());
+			partners.NamePartner = ds.Tables[0].Rows[0]["NamePartner"].ToString();
+			partners.Director = ds.Tables[0].Rows[0]["director"].ToString();
+			partners.EmailPartner = ds.Tables[0].Rows[0]["emailPartner"].ToString();
+			partners.PhonePartner = ds.Tables[0].Rows[0]["phonePartner"].ToString();
+			partners.AddressPartner = ds.Tables[0].Rows[0]["addressPartner"].ToString();
+			partners.TypePartnerName = ds.Tables[0].Rows[0]["typePartnerName"].ToString();
+			partners.Inn = ds.Tables[0].Rows[0]["inn"].ToString();
+			partners.Rating = int.Parse(ds.Tables[0].Rows[0]["rating"].ToString());
+			partners.TypePartnerId = int.Parse(ds.Tables[0].Rows[0]["typePartnerId"].ToString());
+			return partners;
+		}
+
+		
 	}
 }

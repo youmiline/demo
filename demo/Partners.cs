@@ -14,7 +14,7 @@ namespace demo
 		public string EmailPartner {  get; set; }
 		public string PhonePartner {  get; set; }
 		public string AddressPartner {  get; set; }
-		public float Inn{ get; set; }
+		public string Inn{ get; set; }
 		public int Rating { get; set; }
 		public int PartnerId { get; set; }
 		public string TypePartnerName { get; set; }
