@@ -57,7 +57,7 @@ namespace demo
 			string email = txtEmail.Text;
 			const string pattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
 			string phone = txtPhonePartner.Text;
-			const string phonePattern = @"^\+?[\d\.-]{11,}$";
+			/*const string phonePattern = @"^\+?[\d\.-]{11,}$";*/
 			if (txtDirector.TextLength != 0)
 			{
 				if(txtNamePartner.TextLength != 0)
@@ -116,6 +116,7 @@ namespace demo
 		private void NewPartner_Load(object sender, EventArgs e)
 		{
 			classAdo.comboBoxBind(sqlTypePart, cbTypePartnerName, "typePartnerName", "typePartnerId");
+			DGV();
 		}
 
 		private void btnSavePartner_Click(object sender, EventArgs e)
@@ -181,9 +182,12 @@ namespace demo
 			}
 		}
 
+		List<Purchase> purchaseList = new List<Purchase>();
+
 		public void DGV()
 		{
-
+			purchaseList = methods.GetPurchases(currentPartner.PartnerId);
+			dgvPurchase.DataSource = purchaseList;
 		}
 	}
 }
