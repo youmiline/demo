@@ -115,17 +115,22 @@ namespace demo
 			return partners;
 		}
 
-		public Purchase GetPurchases(int partnerId)
+		public List<Purchase> GetPurchases(int partnerId)
 		{
+			List<Purchase> purchases = new List<Purchase>();
 			string sqlPurchase = $"select * from Purchase where partnersId = {partnerId} ";
 			DataSet ds = classAdo.GetDataSet(sqlPurchase);
-			Purchase purchase = new Purchase();
-			purchase.ProductId = int.Parse(ds.Tables[0].Rows[0]["productId"].ToString());
-			purchase.PartnersId = int.Parse(ds.Tables[0].Rows[0]["partnersId"].ToString());
-			purchase.CountProd = int.Parse(ds.Tables[0].Rows[0]["countProd"].ToString());
-			purchase.DatePurchare = DateTime.Parse(ds.Tables[0].Rows[0]["datePurchase"].ToString());
-			purchase.PurchaseId = int.Parse(ds.Tables[0].Rows[0]["purchaseId"].ToString());
-			return purchase;
+			for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+			{
+				Purchase purchase = new Purchase();
+				purchase.ProductId = int.Parse(ds.Tables[0].Rows[0]["productId"].ToString());
+				purchase.PartnersId = int.Parse(ds.Tables[0].Rows[0]["partnersId"].ToString());
+				purchase.CountProd = int.Parse(ds.Tables[0].Rows[0]["countProd"].ToString());
+				purchase.DatePurchare = DateTime.Parse(ds.Tables[0].Rows[0]["datePurchase"].ToString());
+				purchase.PurchaseId = int.Parse(ds.Tables[0].Rows[0]["purchaseId"].ToString());
+				purchases.Add(purchase);
+			}
+				return purchases;
 		}
 	}
 }
