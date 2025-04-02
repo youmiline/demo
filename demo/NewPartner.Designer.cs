@@ -54,14 +54,14 @@
 			this.txtInn = new System.Windows.Forms.TextBox();
 			this.button2 = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvPurchase = new System.Windows.Forms.DataGridView();
 			this.panel3.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numRating)).BeginInit();
 			this.groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel3
@@ -163,7 +163,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(161, 6);
+			this.label2.Location = new System.Drawing.Point(161, 16);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(107, 13);
 			this.label2.TabIndex = 13;
@@ -226,7 +226,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 6);
+			this.label1.Location = new System.Drawing.Point(12, 16);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(76, 13);
 			this.label1.TabIndex = 20;
@@ -305,7 +305,7 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.dataGridView1);
+			this.groupBox2.Controls.Add(this.dgvPurchase);
 			this.groupBox2.Location = new System.Drawing.Point(610, 116);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(558, 384);
@@ -313,14 +313,14 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Продажи партнера";
 			// 
-			// dataGridView1
+			// dgvPurchase
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(552, 365);
-			this.dataGridView1.TabIndex = 0;
+			this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvPurchase.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvPurchase.Location = new System.Drawing.Point(3, 16);
+			this.dgvPurchase.Name = "dgvPurchase";
+			this.dgvPurchase.Size = new System.Drawing.Size(552, 365);
+			this.dgvPurchase.TabIndex = 0;
 			// 
 			// NewPartner
 			// 
@@ -344,7 +344,7 @@
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numRating)).EndInit();
 			this.groupBox2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -375,6 +375,6 @@
 		private System.Windows.Forms.TextBox txtInn;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvPurchase;
 	}
 }

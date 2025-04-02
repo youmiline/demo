@@ -15,6 +15,8 @@ namespace demo
 	public partial class NewPartner : Form
 	{
 		ClassAdo classAdo = new ClassAdo();
+		DBMethods methods = new DBMethods();
+
 		private Partners currentPartner;
 
 		public NewPartner(Partners partner)
@@ -177,6 +179,11 @@ namespace demo
 				item.Enabled = true;
 
 			}
+		}
+
+		public void DGV()
+		{
+
 		}
 	}
 }
