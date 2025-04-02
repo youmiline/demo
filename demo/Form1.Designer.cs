@@ -114,10 +114,11 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximumSize = new System.Drawing.Size(1200, 720);
 			this.Name = "FMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Form1";
+			this.Text = "Мастер пол";
 			this.Load += new System.EventHandler(this.FMain_Load);
 			this.panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

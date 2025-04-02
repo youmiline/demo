@@ -27,7 +27,7 @@ namespace demo
 		{
 			panel1.AutoScroll = true;
 			partners.Clear();
-			int sale;
+			int sale = 0;
 			int d = 20;
 			partners = methods.GetPartners();
 			panel1.Controls.Clear();
@@ -35,10 +35,11 @@ namespace demo
 			{
 				GroupBox group1 = new GroupBox();
 				group1.BackColor = Color.White;
-				panel1 .Controls.Add(group1);
+				panel1.Controls.Add(group1);
 				group1.Size = new Size(1100, 165);
 				group1.Location = new Point(15, d);
 				group1.Name = partner.PartnerId.ToString();
+
 				sale = methods.GetSales(partner.PartnerId);
 
 
@@ -51,14 +52,14 @@ namespace demo
 				lblSale.Font = new Font("Segoe UI", 18);
 				lblSale.Name = "lblSale";
 				lblSale.Text = $"{sale}%";
- 				lbl1.AutoSize = true;
+				lbl1.AutoSize = true;
 				lbl1.Location = new Point(30, 25);
-				lbl1.Font = new Font("Segoe UI",18);
+				lbl1.Font = new Font("Segoe UI", 18);
 				lbl1.Name = "lbl1";
 				lbl1.Text = $"{partner.TypePartnerName} | {partner.NamePartner} \n" +
 					$"{partner.Director} \n" +
 					$"{partner.PhonePartner} \n" +
-					$"Рейтинг:{partner.Rating}  " ;
+					$"Рейтинг: {partner.Rating}  ";
 
 				group1.Controls.Add(lblSale);
 				group1.Controls.Add(lbl1);
@@ -67,6 +68,9 @@ namespace demo
 			}
 
 		}
+
+
+
 
 		private void FMain_Load(object sender, EventArgs e)
 		{

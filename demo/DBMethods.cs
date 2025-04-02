@@ -55,25 +55,43 @@ namespace demo
 
 		public int GetSales(int partnersId)
 		{
+
+			string sqlCheckExists = $"SELECT COUNT(*) FROM Purchase WHERE partnersId = {partnersId}";
+			DataSet dsCheck = classAdo.GetDataSet(sqlCheckExists);
+			int recordCount = Convert.ToInt32(dsCheck.Tables[0].Rows[0][0]);
+
+			if (recordCount == 0)
+			{
+				return 0;
+			}
+
+
 			string sqlSale = $"select sum(countProd) as sumCount from Purchase where partnersId = {partnersId}";
 			int sale = 0;
 			DataSet ds = classAdo.GetDataSet(sqlSale);
 			int sumCount = int.Parse(ds.Tables[0].Rows[0]["sumCount"].ToString());
-			if (sumCount < 10000)
+			if (ds.Tables[0].Rows[0]["sumCount"] != null)
+			{
+				if (sumCount < 10000)
+				{
+					sale = 0;
+				}
+				if (sumCount >= 10000 && sumCount < 50000)
+				{
+					sale = 5;
+				}
+				if (sumCount >= 50000 && sumCount < 300000)
+				{
+					sale = 10;
+				}
+				if (sumCount >= 300000)
+				{
+					sale = 15;
+				}
+			}
+			else
 			{
 				sale = 0;
-			}
-			if (sumCount >= 10000 && sumCount < 50000)
-			{
-				sale = 5;
-			}
-			if (sumCount >= 50000 && sumCount < 300000)
-			{
-				sale = 10;
-			}
-			if (sumCount >= 300000)
-			{
-				sale = 15;
 			}
 			return sale;
 		}
